@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 export default function CreateFieldAndButtonContainer({
   newItemName,
   toDoList,
@@ -14,7 +12,7 @@ export default function CreateFieldAndButtonContainer({
   }
 
   return (
-    <div>
+    <div className="form">
       <input
         type="text"
         value={newItemName}
