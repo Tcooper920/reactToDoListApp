@@ -1,5 +1,6 @@
 import "./App.css";
 import React, { useState } from "react";
+import CreateToDoListApp from "./CreateToDoListApp";
 
 const toDoItemList = [
   { id: 1, itemName: "Bananas" },
@@ -13,54 +14,13 @@ const toDoItemList = [
 
 let nextId = 8;
 
-function CreateToDoListApp() {
-  const [toDoList, setToDoList] = useState(toDoItemList);
-  const [newItemName, setNewItemName] = useState("");
-
-  function HandleAddItem() {
-    const nextListItem = [...toDoList, { id: nextId++, itemName: newItemName }];
-    setToDoList(nextListItem);
-    setNewItemName("");
-  }
-
-  return (
-    <div>
-      <div>
-        <input
-          type="text"
-          value={newItemName}
-          onChange={(e) => setNewItemName(e.target.value)}
-        />
-        <input type="submit" value="Add Item" onClick={HandleAddItem} />
-      </div>
-      <ul className="grocery-list">
-        {toDoList.map((listItem, index) => {
-          return (
-            <li key={index} id={listItem.id} className="grocery-list-item">
-              {listItem.itemName}
-              <button
-                onClick={() =>
-                  setToDoList(
-                    toDoList.filter((item) => item.id !== listItem.id)
-                  )
-                }
-              >
-                X
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
-}
-
-function App() {
+export default function App() {
   return (
     <div id="myApp">
-      <CreateToDoListApp />
+      <CreateToDoListApp 
+        toDoItemList={toDoItemList} 
+        nextId={nextId}
+      />
     </div>
   );
 }
-
-export default App;
