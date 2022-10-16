@@ -16,7 +16,7 @@ let nextId = 8;
 
 export default function App() {
   return (
-    <div id="myApp">
+    <div id="my-app">
       <CreateToDoListApp 
         toDoItemList={toDoItemList} 
         nextId={nextId}
