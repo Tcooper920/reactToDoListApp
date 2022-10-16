@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import CreateFieldAndButtonContainer from "./CreateFieldAndButtonContainer";
-import CreateGroceryListContainer from "./CreateGroceryListContainer";
+import CreateItemListContainer from "./CreateItemListContainer";
 
 export default function CreateToDoListApp({toDoItemList, nextId}) {
     const [toDoList, setToDoList] = useState(toDoItemList);
@@ -11,11 +11,11 @@ export default function CreateToDoListApp({toDoItemList, nextId}) {
         <CreateFieldAndButtonContainer 
             newItemName={newItemName} 
             toDoList={toDoList}
-            nextId={nextId}
             setToDoList={setToDoList}
+            nextId={nextId}
             setNewItemName={setNewItemName}
         />
-        <CreateGroceryListContainer
+        <CreateItemListContainer
             toDoList={toDoList}
             setToDoList={setToDoList}
         />

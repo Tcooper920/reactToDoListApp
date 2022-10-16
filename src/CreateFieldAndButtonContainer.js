@@ -1,12 +1,13 @@
+import React, { useState } from "react";
+
 export default function CreateFieldAndButtonContainer({
   newItemName,
   toDoList,
-  nextId,
   setToDoList,
   setNewItemName,
 }) {
   function HandleAddItem() {
-    const nextListItem = [...toDoList, { id: nextId++, itemName: newItemName }];
+    const nextListItem = [...toDoList, { id: toDoList.length + 1, itemName: newItemName }];
     setToDoList(nextListItem);
     setNewItemName("");
   }
