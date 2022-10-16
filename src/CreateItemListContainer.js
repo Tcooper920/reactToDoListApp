@@ -1,11 +1,15 @@
-export default function CreateItemListContainer({ toDoList, setToDoList}) {
+export default function CreateItemListContainer({ toDoList, setToDoList }) {
   return (
     <ul className="grocery-list">
       {toDoList.map((listItem, index) => {
         return (
-          <li key={listItem.itemName + index} id={index} className="grocery-list-item">
+          <li
+            key={listItem.itemName + index}
+            id={index}
+            className="grocery-list-item"
+          >
             <span>{listItem.itemName}</span>
-            <button 
+            <button
               onClick={() =>
                 setToDoList(toDoList.filter((item) => item.id !== listItem.id))
               }
