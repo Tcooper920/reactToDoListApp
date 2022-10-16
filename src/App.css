@@ -56,6 +56,11 @@ input[type=text], input[type=submit] {
   font-size: 1.2rem; 
 }
 
+.field-error-styling {
+  border: 0.15rem solid #f68484;
+  background-color: #fff3f3;
+}
+
 button {
   cursor: pointer;
   background-color: transparent;
