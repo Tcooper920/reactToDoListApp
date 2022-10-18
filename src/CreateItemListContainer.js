@@ -2,7 +2,7 @@ import CreateSingleItem from "./CreateSingleItem";
 import React, { useState } from "react";
 
 export default function CreateItemListContainer({ toDoList, setToDoList }) {
-  const [toggleCrossOut, setToggleCrossOut] = React.useState({});
+  const [toggleCrossOut, setToggleCrossOut] = useState({});
 
   function toggleCrossOutFunction(id) {
     setToggleCrossOut({
