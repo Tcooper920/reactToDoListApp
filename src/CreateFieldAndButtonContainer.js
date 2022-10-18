@@ -7,15 +7,17 @@ export default function CreateFieldAndButtonContainer({
   setNewItemName,
 }) {
   const [fieldError, setFieldErrorStyling] = useState("no-field-error-styling");
+  const [itemIdCounter, setitemIdCounter] = useState(0);
 
   function HandleAddItem() {
     if (newItemName.trim() === "") {
       setFieldErrorStyling("field-error-styling");
     } else {
+      setitemIdCounter(itemIdCounter + 1);
       setFieldErrorStyling("no-field-error-styling");
       const nextListItem = [
         ...toDoList,
-        { id: toDoList.length + 1, itemName: newItemName },
+        { id: itemIdCounter, itemName: newItemName },
       ];
       setToDoList(nextListItem);
       setNewItemName("");
