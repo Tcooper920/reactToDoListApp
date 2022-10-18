@@ -83,6 +83,10 @@ button {
   overflow-y: scroll;
 }
 
+.grocery-list-item span {
+  cursor: pointer;
+}
+
 .delete-button {
   color: #ec744e;
   display: flex;
@@ -92,6 +96,12 @@ button {
 
 .delete-button:hover {
   opacity: .5;
+}
+
+.cross-out-item {
+  text-decoration: line-through;
+  font-weight: bold;
+  color: #00967f;
 }
 
 /* Media Queries ****************************************************************/

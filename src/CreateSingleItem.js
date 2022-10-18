@@ -1,4 +1,11 @@
-export default function CreateSingleItem({listItem, index, toDoList, setToDoList}) {
+export default function CreateSingleItem({
+  listItem,
+  index,
+  toDoList,
+  setToDoList,
+  toggleCrossOutFunction,
+  toggleCrossOut,
+}) {
   return (
     <>
       <li
@@ -6,7 +13,12 @@ export default function CreateSingleItem({listItem, index, toDoList, setToDoList
         id={index}
         className="grocery-list-item"
       >
-        <span>{listItem.itemName}</span>
+        <span
+          className={toggleCrossOut[listItem.id] ? "cross-out-item" : ""}
+          onClick={() => toggleCrossOutFunction(listItem.id)}
+        >
+          {listItem.itemName}
+        </span>
         <button
           onClick={() =>
             setToDoList(toDoList.filter((item) => item.id !== listItem.id))
