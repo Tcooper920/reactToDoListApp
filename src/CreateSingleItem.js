@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export default function CreateSingleItem({
   listItem,
   index,
@@ -6,6 +8,11 @@ export default function CreateSingleItem({
   toggleCrossOutFunction,
   toggleCrossOut,
 }) {
+  // Store current todo list in local storage...
+  useEffect(() => {
+    localStorage.setItem("get-stored-todo-list", JSON.stringify(toDoList));
+  }, [toDoList]);
+
   return (
     <>
       <li
