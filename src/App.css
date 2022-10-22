@@ -104,6 +104,11 @@ button {
   color: #00967f;
 }
 
+.fade-out {
+  opacity: 0;
+  transition: opacity .5s;
+}
+
 /* Media Queries ****************************************************************/
 @media screen and (max-width: 850px) {
   #my-app {

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function CreateSingleItem({
   listItem,
@@ -13,12 +13,14 @@ export default function CreateSingleItem({
     localStorage.setItem("get-stored-todo-list", JSON.stringify(toDoList));
   }, [toDoList]);
 
+  const [fadeOutStyle, setFadeOutStyle] = useState();
+
   return (
     <>
       <li
         key={listItem.itemName + index}
         id={index}
-        className="grocery-list-item"
+        className={`grocery-list-item ${fadeOutStyle}`}
       >
         <span
           className={toggleCrossOut[listItem.id] ? "cross-out-item" : ""}
@@ -27,9 +29,13 @@ export default function CreateSingleItem({
           {listItem.itemName}
         </span>
         <button
-          onClick={() =>
-            setToDoList(toDoList.filter((item) => item.id !== listItem.id))
-          }
+          onClick={() => {
+            setFadeOutStyle("fade-out");
+            setTimeout(() => {
+              setFadeOutStyle("");
+              setToDoList(toDoList.filter((item) => item.id !== listItem.id));
+            }, "500");
+          }}
           className="delete-button"
         >
           <svg
