@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CreateFieldAndButtonContainer from "./CreateFieldAndButtonContainer";
 import CreateItemListContainer from "./CreateItemListContainer";
-import { useEffect } from "react";
 
 export default function CreateToDoListApp() {
   const [toDoList, setToDoList] = useState([]);
