@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import CreateSingleItem from "./CreateSingleItem";
 
 export default function CreateItemListContainer({ toDoList, setToDoList }) {
@@ -10,6 +10,16 @@ export default function CreateItemListContainer({ toDoList, setToDoList }) {
       [id]: !toggleCrossOut[id],
     });
   }
+
+  // Get stored crossed out item styles...
+  useEffect(() => {
+    const getStoredCrossedOutStyles = JSON.parse(
+      localStorage.getItem("stored-crossed-out-styles")
+    );
+    if (getStoredCrossedOutStyles) {
+      setToggleCrossOut(getStoredCrossedOutStyles);
+    }
+  }, []);
 
   return (
     <ul className="grocery-list">
