@@ -10,7 +10,7 @@ export default function CreateToDoListApp() {
   // Retrieve last todo list from local storage...
   useEffect(() => {
     const items = JSON.parse(localStorage.getItem("get-stored-todo-list"));
-    if (items !== null) {
+    if (items !== null && items.length > 1) {
       setToDoList(items);
     }
   }, [setToDoList]);
