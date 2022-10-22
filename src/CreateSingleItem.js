@@ -8,12 +8,20 @@ export default function CreateSingleItem({
   toggleCrossOutFunction,
   toggleCrossOut,
 }) {
+  const [fadeOutStyle, setFadeOutStyle] = useState();
+
   // Store current todo list in local storage...
   useEffect(() => {
     localStorage.setItem("get-stored-todo-list", JSON.stringify(toDoList));
   }, [toDoList]);
 
-  const [fadeOutStyle, setFadeOutStyle] = useState();
+  // Store current crossed out item style...
+  useEffect(() => {
+    localStorage.setItem(
+      "stored-crossed-out-styles",
+      JSON.stringify(toggleCrossOut)
+    );
+  }, [toggleCrossOut]);
 
   return (
     <>
