@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
 
 export default function CreateFieldAndButtonContainer({
   newItemName,
@@ -7,13 +8,31 @@ export default function CreateFieldAndButtonContainer({
   setNewItemName,
 }) {
   const [fieldError, setFieldErrorStyling] = useState("no-field-error-styling");
-  const [itemIdCounter, setitemIdCounter] = useState(0);
+  const [itemIdCounter, setItemIdCounter] = useState(0);
+
+  // Get stored item ID counter value...
+  useEffect(() => {
+    const getStoredIdCounterValue = JSON.parse(
+      localStorage.getItem("stored-id-counter-value")
+    );
+    if (getStoredIdCounterValue) {
+      setItemIdCounter(getStoredIdCounterValue);
+    }
+  }, []);
+
+  // Store current item ID counter value...
+  useEffect(() => {
+    localStorage.setItem(
+      "stored-id-counter-value",
+      JSON.stringify(itemIdCounter)
+    );
+  }, [itemIdCounter]);
 
   function HandleAddItem() {
     if (newItemName.trim() === "") {
       setFieldErrorStyling("field-error-styling");
     } else {
-      setitemIdCounter(itemIdCounter + 1);
+      setItemIdCounter(itemIdCounter + 1);
       setFieldErrorStyling("no-field-error-styling");
       const nextListItem = [
         ...toDoList,
