@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import CreateToastNotification from "./createToastNotification";
+import CreateToastNotification from "./CreateToastNotification";
 
 export default function CreateFieldAndButtonContainer({
   newItemName,
