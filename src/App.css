@@ -8,16 +8,20 @@
   display: flex;
   background-color: #f68484;
   justify-content: center;
-  padding: 0;
-  height: 0;
+  max-height: 0;
   overflow: hidden;
   font-weight: bold;
   color: white;
+  transition: max-height 1s;
 }
 
 .show-toast {
-  height: 100%;
-  padding: .5rem;
+  max-height: 10rem;
+  transition: max-height 1s;
+}
+
+.toast > p {
+  margin: .5rem;
 }
 
 body {
