@@ -29,7 +29,7 @@ export default function CreateFieldAndButtonContainer({
     );
   }, [itemIdCounter]);
 
-  function HandleAddItem() {
+  function handleAddItem() {
     if (newItemName.trim() === "") {
       setFieldErrorStyling("field-error-styling");
       setToastErrorStyling("show-toast");
@@ -46,6 +46,16 @@ export default function CreateFieldAndButtonContainer({
     }
   }
 
+  function alphabeticalSort() {
+    const alphabeticallySortedList = toDoList.sort((a, b) => {
+      const itemA = a.itemName.toUpperCase();
+      const itemB = b.itemName.toUpperCase();
+
+      return (itemA < itemB) ? -1 : (itemA > itemB) ? 1 : 0;
+    });
+    setToDoList([].concat(alphabeticallySortedList));
+  }
+
   return (
     <>
       <CreateToastNotification toastText={"Please Enter an Item."} toastErrorStyling={toastError} />
@@ -56,7 +66,8 @@ export default function CreateFieldAndButtonContainer({
           onChange={(e) => setNewItemName(e.target.value)}
           className={fieldError}
         />
-        <input type="submit" value="Add Item" onClick={HandleAddItem} />
+        <input type="submit" value="Add Item" className="add-item-btn" onClick={handleAddItem} />
+        <input type="submit" value="Aa Sort" className="alphabetical-sort-btn" onClick={alphabeticalSort} />
       </div>
     </>
   );
