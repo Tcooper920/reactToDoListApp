@@ -56,18 +56,30 @@ body {
 }
 
 .form>input[type=submit] {
-  flex: 1;
+  flex: .5;
   cursor: pointer;
   padding: 0rem 1rem 0rem 1rem;
   margin-left: 1rem;
   border-radius: .2rem;
-  background-color: #00967f;
   color: white;
   font-weight: bold;
 }
 
-input[type=submit]:hover {
+.add-item-btn {
+  background-color: #00967f;
+}
+
+.add-item-btn:hover {
   background-color: #03806d;
+}
+
+.alphabetical-sort-btn {
+  background-color: #acacac;
+}
+
+.alphabetical-sort-btn:hover {
+  flex: .5;
+  background-color: #8d8d8d;
 }
 
 input[type=text],
@@ -148,5 +160,8 @@ button {
   .form>input[type=submit] {
     margin-left: 0;
     padding: 1rem;
+  }
+  .add-item-btn {
+    margin-bottom: 1rem;
   }
 }
